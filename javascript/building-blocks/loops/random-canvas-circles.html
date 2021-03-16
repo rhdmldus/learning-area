@@ -2,37 +2,57 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Random canvas circles</title>
+    <title>Random div circles</title>
     <style>
       html {
         width: 100%;
         height: inherit;
       }
 
-      canvas {
+      div {
         display: block;
+        width: 100%;
       }
 
       body {
-        margin: 0;
+        margin: 50px;
       }
-
-      button {
-        position: absolute;
-        top: 5px;
-        left: 5px;
-      }
-    </style>
+  </style>
   </head>
   <body>
-
-  <button>Update</button>
-
-  <canvas></canvas>
+    <div>
+      <button>Update</button>
+    </div>
 
 
     <script>
-    
+      const people = ['Chris', 'Anne', 'Colin', 'Terri', 'Phil', 'Lola', 'Sam', 'Kay', 'Bruce'];
+      const admited = document.createElement('P');
+      const refused = document.createElement('P');
+      const div = document.querySelector('div');
+      admited.classList.add('addmited');
+      refused.classList.add('refused');
+      div.appendChild(admited)
+      div.appendChild(refused)
+      admited.textContent = "Admit : ";
+      refused.textContent = "refused : ";
+      
+      for(let i = 0; i < people.length; i++) {
+        if(people[i] == "Phil" || people[i] == 'Lola') {
+          if(i == people.length -1) {
+            refused.textContent +=  people[i] + ". ";
+          }
+          refused.textContent +=  people[i] + ", ";
+        }
+        else {
+          if(i === people.length - 1) {
+          admited.textContent += people[i] + ".";
+          }
+          admited.textContent += people[i] + ", ";
+        }
+        
+
+      }
     </script>
 
   </body>
